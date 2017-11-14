@@ -43,4 +43,16 @@ if ($docFileType !== "pdf" && $docFileType !== "docx"){
   $uploadOk = 0;
 }
 
+// if upload is not OK
+
+if ($uploadOk == 0) {
+  echo "Sorry, Upload failed.";
+} else {
+  if (move_uploaded_file($_FILES["fileToUpload"]["dummy_name"],$target_file)){
+    echo "File".basename($FILES["fileToUpload"]["name"]). "successfully uploaded.";
+  } else {
+    echo "Upload Error.";
+  }
+}
+
 ?>
